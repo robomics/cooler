@@ -23,8 +23,18 @@ __all__ = ["Cooler", "annotate"]
 
 
 # The 4DN data portal and hic2cool store these weight vectors in divisive form
-_4DN_DIVISIVE_WEIGHTS = {"KR", "VC", "VC_SQRT"}
-
+_4DN_DIVISIVE_WEIGHTS = {
+    "KR",
+    "SCALE",
+    "VC",
+    "VC_SQRT",
+    "INTER_KR",
+    "INTER_SCALE",
+    "INTER_VC",
+    "GW_KR",
+    "GW_SCALE",
+    "GW_VC",
+}
 
 class Cooler:
     """
@@ -345,8 +355,18 @@ class Cooler:
         divisive_weights : bool, optional
             Force balancing weights to be interpreted as divisive (True) or
             multiplicative (False). Weights are always assumed to be
-            multiplicative by default unless named KR, VC or SQRT_VC, in which
-            case they are assumed to be divisive by default.
+            multiplicative by default unless named:
+             - KR
+             - SCALE
+             - VC
+             - VC_SQRT
+             - INTER_KR
+             - INTER_SCALE
+             - INTER_VC
+             - GW_KR
+             - GW_SCALE
+             - GW_VC
+            in which case they are assumed to be divisive by default.
 
         Returns
         -------
